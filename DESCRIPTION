@@ -1,0 +1,27 @@
+Package: rITSx
+Type: Package
+Title: Extract ITS and Neighboring Regions from Eukaryotic DNA Sequences
+Version: 0.0.0.9000
+Author@R: c(person(given = "Brendan", family = "Furneaux", middle = "R",
+    email = "brendan.furneaux@gmail.com", role = c("cre", "aut")),
+    person(given = "Johan", family = "Bengtsson-Palme", role = "aut",
+    comment = "Lead author of ITSx")
+Maintainer@R: Brendan Furneaux <brendan.furneaux@gmail.com>
+Description: This package is an interface to the ITSx command-line utility 
+    (http://microbiology.se/software/itsx/) from R.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+SystemRequirements: ITSx (>=1.1b1)
+Imports: magrittr,
+    dplyr,
+    tidyr,
+    assertthat,
+    rlang,
+    glue,
+    methods,
+    readr
+Suggests: Biostrings,
+    ShortRead,
+    seqinr
+RoxygenNote: 6.1.1
