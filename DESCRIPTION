@@ -9,6 +9,8 @@ Author@R: c(person(given = "Brendan", family = "Furneaux", middle = "R",
 Maintainer@R: Brendan Furneaux <brendan.furneaux@gmail.com>
 Description: This package is an interface to the ITSx command-line utility 
     (http://microbiology.se/software/itsx/) from R.
+URL: http://github.com/brendanf/rITSx
+BugReports: http://github.com/brendanf/rITSx/issues 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
