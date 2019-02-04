@@ -21,7 +21,7 @@ itsx(in.file, out.root = tempfile("itsx"), taxon = "fungi",
 \arguments{
 \item{in.file}{Name of a fasta file to read sequences from. Alternatively, a member of classes \link[ShortRead]{ShortRead}, \link[Biostrings]{DNAStringSet} or \link[seqinr]{SeqFastadna}, in which case the sequences will be written to a temporary .fasta file.}
 
-\item{out.root}{Root name for all output files}
+\item{out.root}{Root name for all output files.  The default will put these in a pseudorandomly generated file name in the R temp directory, which is probably not what you want if you intend to access them later.}
 
 \item{taxon}{The taxonomic group(s) to attempt to find rDNA from.  See the manual for ITSx for available options.  In contrast to the default for ITSx ("all") the default for this function is "fungi".}
 
