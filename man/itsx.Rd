@@ -91,7 +91,7 @@ Only one of \code{anchor} and \code{require_anchor} may be given.}
 
 \item{save_raw}{Save raw data from searches in directory \code{[out.root]_ITSx_raw_output}.}
 
-\item{read_function}{A function which can be used to read a fasta format file, such as \code{\link{ShortRead::readFasta}}, \code{\link{Biostrings::readDNAStringSet}}, or \code{\link{seqinr::read.fasta}}. If a value is given, then all output files will be read and then deleted, using the given function to read fasta files.  If no fasta output is requested, then this behavior can be triggered by giving any other value, for example \code{TRUE} (but also \code{FALSE}!)}
+\item{read_function}{A function which can be used to read a fasta format file, such as \code{\link[ShortRead:readFasta]{ShortRead::readFasta}}, \code{\link[Biostrings:readDNAStringSet]{Biostrings::readDNAStringSet}}, or \code{\link[seqinr:read.fasta]{seqinr::read.fasta}}. If a value is given, then all output files will be read and then deleted, using the given function to read fasta files.  If no fasta output is requested, then this behavior can be triggered by giving any other value, for example \code{TRUE} (but also \code{FALSE}!)}
 }
 \value{
 The return value of the ITSx program, or if \code{read_function} is given, a list containing the contents of all files which were created (except the raw output).
