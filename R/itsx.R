@@ -168,7 +168,7 @@ itsx <- function(in.file, out.root = tempfile("itsx"),
              all(purrr::map_lgl(in.file, methods::is, "SeqFastadna"))) {
     .data <- in.file
     in.file <- paste0(out.root, ".fasta")
-    seqinr::write.fasta(sequences = .data, names = names(data),
+    seqinr::write.fasta(sequences = .data, names = seqinr::getName(.data),
                         file.out = in.file)
     on.exit(file.remove(in.file))
   } else {
