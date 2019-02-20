@@ -1,3 +1,7 @@
+.onLoad <- function(libname, pkgname) {
+  backports::import(pkgname)
+}
+
 # Dereplicate a collection of fastq.gz files,
 # Use ITSx to locate ITS1, ITS2, and LSU regions
 # Output separate files for each input file and region.
@@ -39,6 +43,7 @@ magrittr::`%>%`
 #' Only one of search_eval and search_score may be supplied.
 #' @param allow_single_domain Allow inclusion of sequences where only one domain match is found.  Either FALSE or a (double, integer) pair giving inclusion criteria for Evalue and Score.
 #' @param allow_reorder Allow inclusion of sequences where the domains do not occur in the expected order.
+#' @param complement Search the reverse complement of each sequence also.
 #' @param cpu Number of threads to use.
 #' @param multi_thread Whether to use multiple threads or not.
 #' @param heuristics Use heuristic filtering to speed up HMMER search.
@@ -278,7 +283,7 @@ itsx_read_output <-  function(out.root, summary = TRUE,
     out.regions <- save_regions
   }
   for (r in out.regions) {
-    readfile <- paste0(out.root, ".", str_replace_all(r, "\\.", "_"), ".fasta")
+    readfile <- paste0(out.root, ".", stringr::str_replace_all(r, "\\.", "_"), ".fasta")
     if (file.exists(readfile)) {
       out[[r]] <- read_function(readfile)
       file.remove(readfile)

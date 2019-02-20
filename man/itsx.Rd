@@ -43,6 +43,8 @@ Only one of search_eval and search_score may be supplied.}
 
 \item{allow_reorder}{Allow inclusion of sequences where the domains do not occur in the expected order.}
 
+\item{complement}{Search the reverse complement of each sequence also.}
+
 \item{cpu}{Number of threads to use.}
 
 \item{multi_thread}{Whether to use multiple threads or not.}
