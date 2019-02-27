@@ -240,6 +240,7 @@ itsx <- function(in.file, out.root = tempfile("itsx"),
                    .sep = " "
   )
   out <- system(cl)
+  if (out > 0) stop("ITSx failed with return code ", out,".")
   if (missing(read_function)) return(out)
   itsx_read_output(out.root, summary, graphical, fasta, save_regions, partial,
                    concat, positions, table, detailed_results, not_found,
@@ -337,7 +338,7 @@ itsx_read_output <-  function(out.root, summary = TRUE,
         tidyr::gather(key = "region", value = "pos", SSU:LSU) %>%
         dplyr::mutate_at("pos", stringr::str_extract, pattern = "\\d+-\\d+") %>%
         tidyr::extract(pos, into = c("start", "end"), regex = "(\\d+)-(\\d+)") %>%
-        dplyr::mutate_at(vars(start:end), as.integer)
+        dplyr::mutate_at(dplyr::vars(start:end), as.integer)
       file.remove(readfile)
     } else {
       out$positions <- NULL
