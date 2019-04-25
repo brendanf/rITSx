@@ -1,7 +1,7 @@
 Package: rITSx
 Type: Package
 Title: Extract ITS and Neighboring Regions from Eukaryotic DNA Sequences
-Version: 0.0.0.9000
+Version: 0.0.1
 Author: Brendan Furneaux, Johan Bengtsson-Palme (ITSx)
 Author@R: c(person(given = "Brendan", family = "Furneaux", middle = "R",
     email = "brendan.furneaux@gmail.com", role = c("cre", "aut")),
