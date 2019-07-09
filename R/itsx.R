@@ -334,7 +334,17 @@ itsx_read_output <-  function(out.root, summary = TRUE,
       out$positions <-
         readr::read_tsv(readfile,
                         col_names = c("seq", "length", "SSU", "ITS1",
-                                      "5_8S", "ITS2", "LSU", "comment")) %>%
+                                      "5_8S", "ITS2", "LSU", "comment"),
+                        col_types = cols(
+                           seq = col_double(),
+                           length = col_character(),
+                           SSU = col_character(),
+                           ITS1 = col_character(),
+                           `5_8S` = col_character(),
+                           ITS2 = col_character(),
+                           LSU = col_character(),
+                           comment = col_character()
+                        )) %>%
         tidyr::gather(key = "region", value = "pos", SSU:LSU) %>%
         dplyr::mutate_at("pos", stringr::str_extract, pattern = "\\d+-\\d+") %>%
         tidyr::extract(pos, into = c("start", "end"), regex = "(\\d+)-(\\d+)") %>%
