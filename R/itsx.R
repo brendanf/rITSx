@@ -2,6 +2,9 @@
   backports::import(pkgname)
 }
 
+utils::globalVariables(c("LSU", "SSU", "col_character", "col_double", "cols",
+                         "end", "is.flag", "pos", "start"))
+
 # Dereplicate a collection of fastq.gz files,
 # Use ITSx to locate ITS1, ITS2, and LSU regions
 # Output separate files for each input file and region.
