@@ -1,0 +1,23 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+cache: packages
+
+r_binary_packages:
+    - dplyr
+    - tidyr
+    - assertthat
+    - rlang
+    - glue
+    - methods
+    - readr
+    - purrr
+    - stringr
+    - backports
+bioc_packages:
+   - Biostrings
+   - ShortRead
+
+after_success:
+    - Rscript -e 'covr::codecov()'
+    - Rscript -e 'lintr::lint_package()'

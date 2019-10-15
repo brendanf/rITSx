@@ -39,7 +39,10 @@ Imports: magrittr,
     purrr,
     stringr,
     backports
-Suggests: Biostrings,
+Suggests: 
+    Biostrings,
     ShortRead,
-    seqinr
+    seqinr,
+    covr,
+    lintr
 RoxygenNote: 6.1.1
