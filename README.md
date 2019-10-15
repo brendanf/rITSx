@@ -11,8 +11,9 @@ coverage](https://codecov.io/gh/brendanf/rITSx/branch/master/graph/badge.svg)](h
 
 # rITSx
 
-This package is an interface to the ITSx command-line utility
-(<http://microbiology.se/software/itsx/>) from R.
+This package is an interface to the
+[ITSx](http://microbiology.se/software/itsx/) command-line utility from
+R.
 
 ## Installation
 

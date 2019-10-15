@@ -4,8 +4,8 @@
 \alias{itsx}
 \title{Extract Ribosomal RNA Gene Regions from Eukaryotic DNA}
 \usage{
-itsx(in.file, out.root = tempfile("itsx"), taxon = "fungi",
-  Evalue = 1e-05, Svalue = 0, Nvalue = 2,
+itsx(in_file, out_root = tempfile("itsx"), taxon = "fungi",
+  e_value = 1e-05, s_value = 0, n_value = 2,
   selection_priority = c("score", "sum", "domains", "eval"),
   search_eval = 0.01, search_score = NULL,
   allow_single_domain = c(1e-09, 0), allow_reorder = FALSE,
@@ -19,17 +19,24 @@ itsx(in.file, out.root = tempfile("itsx"), taxon = "fungi",
   graph_scale = 0, save_raw = FALSE, read_function = NULL)
 }
 \arguments{
-\item{in.file}{Name of a fasta file to read sequences from. Alternatively, a member of classes \link[ShortRead]{ShortRead}, \link[Biostrings]{DNAStringSet} or \link[seqinr]{SeqFastadna}, in which case the sequences will be written to a temporary .fasta file.}
+\item{in_file}{Name of a fasta file to read sequences from. Alternatively, a
+member of classes \link[ShortRead]{ShortRead},
+\link[Biostrings]{DNAStringSet} or \link[seqinr]{SeqFastadna}, in
+which case the sequences will be written to a temporary .fasta file.}
 
-\item{out.root}{Root name for all output files.  The default will put these in a pseudorandomly generated file name in the R temp directory, which is probably not what you want if you intend to access them later.}
+\item{out_root}{Root name for all output files.  The default will put these
+in a pseudorandomly generated file name in the R temp directory, which
+is probably not what you want if you intend to access them later.}
 
-\item{taxon}{The taxonomic group(s) to attempt to find rDNA from.  See the manual for ITSx for available options.  In contrast to the default for ITSx ("all") the default for this function is "fungi".}
+\item{taxon}{The taxonomic group(s) to attempt to find rDNA from.  See the
+manual for ITSx for available options.  In contrast to the default for
+ITSx ("all") the default for this function is "fungi".}
 
-\item{Evalue}{E-value cutoff for inclusion in results.}
+\item{e_value}{E-value cutoff for inclusion in results.}
 
-\item{Svalue}{Score cutoff for inclusion in results.}
+\item{s_value}{Score cutoff for inclusion in results.}
 
-\item{Nvalue}{Number of domains required for inclusion in results.}
+\item{n_value}{Number of domains required for inclusion in results.}
 
 \item{selection_priority}{Priority for determining sequence origin.}
 
@@ -39,9 +46,12 @@ Only one of search_eval and search_score may be supplied.}
 \item{search_score}{Actual score cutoff for HMMER search.
 Only one of search_eval and search_score may be supplied.}
 
-\item{allow_single_domain}{Allow inclusion of sequences where only one domain match is found.  Either FALSE or a (double, integer) pair giving inclusion criteria for Evalue and Score.}
+\item{allow_single_domain}{Allow inclusion of sequences where only one domain
+match is found.  Either FALSE or a (double, integer) pair giving
+inclusion criteria for e_value and Score.}
 
-\item{allow_reorder}{Allow inclusion of sequences where the domains do not occur in the expected order.}
+\item{allow_reorder}{Allow inclusion of sequences where the domains do not
+occur in the expected order.}
 
 \item{complement}{Search the reverse complement of each sequence also.}
 
@@ -53,54 +63,87 @@ Only one of search_eval and search_score may be supplied.}
 
 \item{nhmmer}{Use nhmmer instead of hmmsearch.}
 
-\item{summary}{Output summary results in \code{[out.root].summary.txt}.}
+\item{summary}{Output summary results in \code{[out_root].summary.txt}.}
 
-\item{graphical}{Output graphical results in \code{[out.root].graph}.}
+\item{graphical}{Output graphical results in \code{[out_root].graph}.}
 
-\item{fasta}{Output full ITS (ITS1 + 5.8S + ITS2) results in \code{[out.root].full.fasta}.}
+\item{fasta}{Output full ITS (ITS1 + 5.8S + ITS2) results in
+\code{[out_root].full.fasta}.}
 
 \item{preserve}{Use original sequence headers instead of writing new ones.}
 
-\item{save_regions}{Additional reagions to save output for; Options are one or more of "SSU", "ITS1", "5.8S", "ITS2", "LSU", or "all" or "none". There will be output in \code{[out.root].SSU.fasta}, \code{[out.root].ITS1.fasta}, etc.}
+\item{save_regions}{Additional reagions to save output for; Options are one
+or more of \code{"SSU"}, \code{"ITS1"}, \code{"5.8S"}, \code{"ITS2"},
+\code{"LSU"}, or \code{"all"} or \code{"none"}. There will be output
+in \code{[out_root].SSU.fasta}, \code{[out_root].ITS1.fasta}, etc.}
 
-\item{anchor}{Number of extra bases included at the beginning and end of each region.
-Only one of \code{anchor} and \code{require_anchor} may be given.}
+\item{anchor}{Number of extra bases included at the beginning and end of each
+region. Only one of \code{anchor} and \code{require_anchor} may be
+given.}
 
-\item{require_anchor}{As \code{anchor}, but the anchor bases are required to be present for the region to be included in output.
+\item{require_anchor}{As \code{anchor}, but the anchor bases are required to
+be present for the region to be included in output.
 Only one of \code{anchor} and \code{require_anchor} may be given.}
 
 \item{only_full}{Limit output to full length ITS1 and ITS2 regions.}
 
-\item{partial}{Save additional files for partial regions.  The argument give the minimum number of bases required.  These will be saved as \code{[out.root].full_and_partial.fasta} for the full ITS region, and as \code{[out.root].SSU.full_and_partial.fasta}, \code{[out.root].ITS1.full_and_partial.fasta}, etc. for the other regions.}
+\item{partial}{Save additional files for partial regions.  The argument give
+the minimum number of bases required.  These will be saved as
+\code{[out_root].full_and_partial.fasta} for the full ITS region, and
+as \code{[out_root].SSU.full_and_partial.fasta},
+\code{[out_root].ITS1.full_and_partial.fasta}, etc. for the other
+regions.}
 
-\item{concat}{Output concatenated ITS1 and ITS2 regions in \code{[out.root].concat.fasta}.}
+\item{concat}{Output concatenated ITS1 and ITS2 regions in
+\code{[out_root].concat.fasta}.}
 
 \item{minlen}{Minimum length for ITS regions to be included in \code{concat}.}
 
-\item{positions}{Output a table of positions where HMMER matches were detected in \code{[out.root].positions.txt}.}
+\item{positions}{Output a table of positions where HMMER matches were
+detected in \code{[out_root].positions.txt}.}
 
-\item{table}{Output a table of ITS results in \code{[out.root].hmmer.table}.}
+\item{table}{Output a table of ITS results in \code{[out_root].hmmer.table}.}
 
-\item{detailed_results}{Output detailed results in \code{[out.root].extraction.results}.}
+\item{detailed_results}{Output detailed results in
+\code{[out_root].extraction.results}.}
 
-\item{not_found}{Output a list of sequences for which no match was found in \code{[out.root]_no_detections.txt}.}
+\item{not_found}{Output a list of sequences for which no match was found in
+\code{[out_root]_no_detections.txt}.}
 
-\item{truncate}{Remove ends of ITS sequences if they extend beyond the ITS region.}
+\item{truncate}{Remove ends of ITS sequences if they extend beyond the ITS
+region.}
 
 \item{silent}{Supress printing of information to screen.}
 
 \item{graph_scale}{Sets the scale of the graphical output.}
 
-\item{save_raw}{Save raw data from searches in directory \code{[out.root]_ITSx_raw_output}.}
+\item{save_raw}{Save raw data from searches in directory
+\code{[out_root]_ITSx_raw_output}.}
 
-\item{read_function}{A function which can be used to read a fasta format file, such as \code{\link[ShortRead:readFasta]{ShortRead::readFasta}}, \code{\link[Biostrings:readDNAStringSet]{Biostrings::readDNAStringSet}}, or \code{\link[seqinr:read.fasta]{seqinr::read.fasta}}. If a value is given, then all output files will be read and then deleted, using the given function to read fasta files.  If no fasta output is requested, then this behavior can be triggered by giving any other value, for example \code{TRUE} (but also \code{FALSE}!)}
+\item{read_function}{A function which can be used to read a fasta format
+     file, such as \code{\link[ShortRead:readFasta]{ShortRead::readFasta}},
+\code{\link[Biostrings:readDNAStringSet]{Biostrings::readDNAStringSet}}, or
+     \code{\link[seqinr:read.fasta]{seqinr::read.fasta}}. If a value is
+     given, then all output files will be read and then deleted, using the
+     given function to read fasta files.  If no fasta output is requested,
+     then this behavior can be triggered by giving any other value, for
+     example \code{TRUE} (but also \code{FALSE}!)}
 }
 \value{
-The return value of the ITSx program, or if \code{read_function} is given, a list containing the contents of all files which were created (except the raw output).
+The return value of the ITSx program, or if \code{read_function} is
+        given, a list containing the contents of all files which were created
+        (except the raw output).
 }
 \description{
-Calls the external program ITSx, which must be installed and on the path. For more information on installation, algorithms, or options, see http://microbiology.se/software/itsx/.
+Calls the external program ITSx, which must be installed and on the path. For
+more information on installation, algorithms, or options, see
+http://microbiology.se/software/itsx/.
 }
 \details{
-For basic usage, this function only checks the arguments and gernerates the function call.  However, to simplify integration with R-based workflows, it is also possible to specify the \code{in.file} as one of several R classes that hold DNA sequences , and by specifying a \code{read_function}, the output file(s) can be automatically read into R and returned as members of a \code{list}.
+For basic usage, this function only checks the arguments and gernerates the
+function call.  However, to simplify integration with R-based workflows, it
+is also possible to specify the \code{in_file} as one of several R classes
+that hold DNA sequences , and by specifying a \code{read_function}, the
+output file(s) can be automatically read into R and returned as members of a
+\code{list}.
 }
