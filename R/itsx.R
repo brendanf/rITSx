@@ -76,8 +76,6 @@ magrittr::`%>%`
 #'
 #' @return The return value of the ITSx program, or if \code{read_function} is given, a list containing the contents of all files which were created (except the raw output).
 #' @export
-#'
-#' @examples
 itsx <- function(in.file, out.root = tempfile("itsx"),
                  taxon = "fungi", Evalue = 1e-5,
                  Svalue = 0, Nvalue = 2,

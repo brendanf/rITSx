@@ -1,12 +1,23 @@
 Package: rITSx
 Type: Package
 Title: Extract ITS and Neighboring Regions from Eukaryotic DNA Sequences
-Version: 0.0.1
-Author: Brendan Furneaux, Johan Bengtsson-Palme (ITSx)
-Authors@R: c(person(given = "Brendan", family = "Furneaux", middle = "R",
-    email = "brendan.furneaux@gmail.com", role = c("cre", "aut")),
-    person(given = "Johan", family = "Bengtsson-Palme", role = "aut",
-    comment = "Lead author of ITSx")
+Version: 0.0.2
+Authors: Brendan Furneaux, Johan Bengtsson-Palme (ITSx)
+Authors@R: c(
+    person(
+      given = "Brendan",
+      family = "Furneaux",
+      middle = "R",
+      email = "brendan.furneaux@gmail.com",
+      role = c("cre", "aut")
+    ),
+    person(
+      given = "Johan", 
+      family = "Bengtsson-Palme", 
+      role = "aut",
+      comment = "Lead author of ITSx"
+    )
+    )
 Maintainer: Brendan Furneaux <brendan.furneaux@gmail.com>
 Description: This package is an interface to the ITSx command-line utility 
     (http://microbiology.se/software/itsx/) from R.
