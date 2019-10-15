@@ -9,7 +9,6 @@ r_binary_packages:
     - assertthat
     - rlang
     - glue
-    - methods
     - readr
     - purrr
     - stringr
