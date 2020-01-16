@@ -4,19 +4,44 @@
 \alias{itsx}
 \title{Extract Ribosomal RNA Gene Regions from Eukaryotic DNA}
 \usage{
-itsx(in_file, out_root = tempfile("itsx"), taxon = "fungi",
-  e_value = 1e-05, s_value = 0, n_value = 2,
+itsx(
+  in_file,
+  out_root = tempfile("itsx"),
+  taxon = "fungi",
+  e_value = 1e-05,
+  s_value = 0,
+  n_value = 2,
   selection_priority = c("score", "sum", "domains", "eval"),
-  search_eval = 0.01, search_score = NULL,
-  allow_single_domain = c(1e-09, 0), allow_reorder = FALSE,
-  complement = TRUE, cpu = 1, multi_thread = cpu > 1,
-  heuristics = FALSE, nhmmer = FALSE, summary = TRUE,
-  graphical = TRUE, fasta = TRUE, preserve = FALSE,
-  save_regions = c("ITS1", "ITS2"), anchor = 0, require_anchor = 0,
-  only_full = FALSE, partial = 0, concat = FALSE, minlen = 0,
-  positions = TRUE, table = FALSE, detailed_results = FALSE,
-  not_found = TRUE, truncate = TRUE, silent = FALSE,
-  graph_scale = 0, save_raw = FALSE, read_function = NULL)
+  search_eval = 0.01,
+  search_score = NULL,
+  allow_single_domain = c(1e-09, 0),
+  allow_reorder = FALSE,
+  complement = TRUE,
+  cpu = 1,
+  multi_thread = cpu > 1,
+  heuristics = FALSE,
+  nhmmer = FALSE,
+  summary = TRUE,
+  graphical = TRUE,
+  fasta = TRUE,
+  preserve = FALSE,
+  save_regions = c("ITS1", "ITS2"),
+  anchor = 0,
+  require_anchor = 0,
+  only_full = FALSE,
+  partial = 0,
+  concat = FALSE,
+  minlen = 0,
+  positions = TRUE,
+  table = FALSE,
+  detailed_results = FALSE,
+  not_found = TRUE,
+  truncate = TRUE,
+  silent = FALSE,
+  graph_scale = 0,
+  save_raw = FALSE,
+  read_function = NULL
+)
 }
 \arguments{
 \item{in_file}{Name of a fasta file to read sequences from. Alternatively, a

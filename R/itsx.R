@@ -145,7 +145,7 @@ itsx <- function(in_file, out_root = tempfile("itsx"),
   # check arguments
 
   selection_priority <- match.arg(selection_priority)
-  cat("selection priority:", selection_priority)
+  cat("selection priority:", selection_priority, "\n")
   save_regions <- match.arg(
      save_regions,
      c("ITS1", "ITS2", "SSU", "LSU", "5.8S", "all", "none"),
@@ -384,15 +384,15 @@ itsx_read_output <-  function(out_root, summary = TRUE,
         readr::read_tsv(readfile,
                         col_names = c("seq", "length", "SSU", "ITS1",
                                       "5_8S", "ITS2", "LSU", "comment"),
-                        col_types = cols(
-                           seq = col_double(),
-                           length = col_character(),
-                           SSU = col_character(),
-                           ITS1 = col_character(),
-                           `5_8S` = col_character(),
-                           ITS2 = col_character(),
-                           LSU = col_character(),
-                           comment = col_character()
+                        col_types = readr::cols(
+                           seq = readr::col_character(),
+                           length = readr::col_character(),
+                           SSU = readr::col_character(),
+                           ITS1 = readr::col_character(),
+                           `5_8S` = readr::col_character(),
+                           ITS2 = readr::col_character(),
+                           LSU = readr::col_character(),
+                           comment = readr::col_character()
                         )) %>%
         tidyr::gather(key = "region", value = "pos", SSU:LSU) %>%
         dplyr::mutate_at("pos", stringr::str_extract, pattern = "\\d+-\\d+") %>%
