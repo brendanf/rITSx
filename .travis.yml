@@ -3,20 +3,6 @@
 language: R
 cache: packages
 
-r_binary_packages:
-    - dplyr
-    - tidyr
-    - assertthat
-    - rlang
-    - glue
-    - readr
-    - purrr
-    - stringr
-    - backports
-bioc_packages:
-   - Biostrings
-   - ShortRead
-
 after_success:
     - Rscript -e 'covr::codecov()'
     - Rscript -e 'lintr::lint_package()'
