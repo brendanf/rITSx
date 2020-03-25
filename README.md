@@ -24,3 +24,9 @@ You can install the development version from
 # install.packages("devtools")
 devtools::install_github("brendanf/rITSx")
 ```
+
+The ITSx tool must be installed in order for `rITSx` to work. For
+current installation instructions, see
+<http://microbiology.se/software/itsx/>.
+
+## Use

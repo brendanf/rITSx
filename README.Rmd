@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 # rITSx
 
 This package is an interface to the
-[ITSx](http://microbiology.se/software/itsx/) command-line utility  from R.
+[ITSx](http://microbiology.se/software/itsx/) command-line utility from R.
 
 ## Installation
 
@@ -29,3 +29,9 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("brendanf/rITSx")
 ```
+
+The ITSx tool must be installed in order for `rITSx` to work. 
+For current installation instructions, see http://microbiology.se/software/itsx/.
+
+## Use
+
