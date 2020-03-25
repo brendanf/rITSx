@@ -46,3 +46,4 @@ Suggests:
     covr,
     lintr
 RoxygenNote: 7.0.2
+biocViews:
