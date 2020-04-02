@@ -382,10 +382,10 @@ itsx_read_output <-  function(out_root, summary = TRUE,
     if (file.exists(readfile)) {
       out$positions <-
         readr::read_tsv(readfile,
-                        col_names = c("seq", "length", "SSU", "ITS1",
+                        col_names = c("seq_id", "length", "SSU", "ITS1",
                                       "5_8S", "ITS2", "LSU", "comment"),
                         col_types = readr::cols(
-                           seq = readr::col_character(),
+                           seq_id = readr::col_character(),
                            length = readr::col_character(),
                            SSU = readr::col_character(),
                            ITS1 = readr::col_character(),
