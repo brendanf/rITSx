@@ -238,7 +238,7 @@ itsx <- function(in_file, out_root = tempfile("itsx"),
                    if (missing(search_eval)) {
                      ""
                    } else {
-                     "--search_eval {format{search_eval, scientific = TRUE)}"
+                     "--search_eval {format(search_eval, scientific = TRUE)}"
                    },
                    if (missing(search_score)) {
                      ""
